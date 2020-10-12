@@ -3,14 +3,23 @@ spring:
     name: eureka
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
-  #�������ұ���
+      defaultZone: http://eureka-7900:7900/eureka/,http://eureka-7901:7901/eureka/,http://eureka-7902:7902/eureka/
+    enabled: true
+  #优化：eureka是AP非CAP-因为eureka没有一致性
   server:
+    #开启自我保护
     enable-self-preservation: true
+    #自我保护阈值
     renewal-percent-threshold: 0.85
+    #剔除服务的时间间隔
+    eviction-interval-timer-in-ms: 1000
+    #关闭从readOnly读取注册表
+    use-read-only-response-cache: false
+    #readWrite和readOnly同步时间间隔
+    response-cache-update-interval-ms: 1000
 ---
 spring:
   profiles: 7900

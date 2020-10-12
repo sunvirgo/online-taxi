@@ -2,8 +2,13 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:7900/eureka
+    registry-fetch-interval-seconds: 30
+    #等同于添加客户端注解@EnableEurekaClient源代码也是将开关设置为true
+    enabled: true
+  instance:
+    lease-renewal-interval-in-seconds: 30
 server:
-  port: 8900
+  port: 8080
 spring:
   application:
-    name: passenger
+    name: api-passenger

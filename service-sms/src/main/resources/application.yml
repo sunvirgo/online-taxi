@@ -1,0 +1,10 @@
+eureka:
+  client:
+    #等同于添加客户端注解@EnableEurekaClient源代码也是将开关设置为true
+    enabled: false
+server:
+  port: 8081
+spring:
+  application:
+    name: service-sms
+
