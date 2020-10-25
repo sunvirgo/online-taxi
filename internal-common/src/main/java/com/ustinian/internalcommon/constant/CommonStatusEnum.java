@@ -2,6 +2,7 @@ package com.ustinian.internalcommon.constant;
 
 import lombok.Getter;
 
+
 public enum CommonStatusEnum {
 	
 	/**短信验证码服务	100  01-100  99*/
